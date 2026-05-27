@@ -1,8 +1,10 @@
-# 阅读助手
+# Reading Assistant
 
-阅读助手是一个 Codex skill，用来解释你在微信读书里的划线和批注。
+[简体中文](README.zh-CN.md)
 
-它不是笔记导出工具。它的目标是把一次阅读停顿转化成一张可复用的理解卡片：这句话在说什么，为什么你可能会卡住，原文和上下文是什么，哪些理解容易走偏，最后应该怎样记住它。
+Reading Assistant is a Codex skill for explaining highlights and notes from WeRead.
+
+It is not a note-export tool. Its job is to turn a moment of reading friction into a reusable understanding card: what the passage says, why it may be confusing, what the source text and context are, where common misreadings come from, and how to remember the point.
 
 ```text
 WeRead highlight -> reader question -> source check -> explanation -> Obsidian note
@@ -12,21 +14,21 @@ WeRead highlight -> reader question -> source check -> explanation -> Obsidian n
 
 When you highlight a passage, you are usually marking a problem, not just saving a sentence. The problem may be explicit, as in a note you wrote yourself, or implicit, as in several adjacent highlights around the same concept.
 
-阅读助手 treats each highlight as evidence. It reads the surrounding reading signals, infers the likely question, verifies source text when needed, and writes a concise explanation that can be saved to Obsidian.
+Reading Assistant treats each highlight as evidence. It reads the surrounding reading signals, infers the likely question, verifies source text when needed, and writes a concise explanation that can be saved to Obsidian.
 
 Use it for questions like:
 
 ```text
-这句怎么理解？
-罗素原文怎么说？
-这个翻译是不是有问题？
-看看我最近一周的划线，我可能在困惑什么？
-把今天最值得解的一条划线保存成 Obsidian 卡片。
+How should I understand this sentence?
+What does Russell say in the original text?
+Is this translation misleading?
+Look at my highlights from the last week. What questions am I probably struggling with?
+Explain the most important highlight from today and save it as an Obsidian card.
 ```
 
-## What the skill does
+## What the Skill Does
 
-阅读助手 runs a five-step workflow.
+Reading Assistant runs a five-step workflow.
 
 1. **Locate the passage**
 
@@ -59,9 +61,9 @@ Use it for questions like:
 | Obsidian vault | Optional | Stores explanation cards, daily summaries, and unresolved questions. |
 | Codex automations | Optional | Runs a daily review, for example every night at 22:00. |
 
-### Companion skill dependency
+### Companion Skill Dependency
 
-阅读助手 depends on the companion `微信读书` skill. It expects that skill to expose these workflows:
+Reading Assistant depends on the companion `微信读书` skill. It expects that skill to expose these workflows:
 
 | WeRead capability | Used for |
 | --- | --- |
@@ -71,7 +73,7 @@ Use it for questions like:
 | `/book/chapterinfo` | Resolve chapter structure and chapter titles. |
 | `/readdata/detail` | Summarize recent reading activity. |
 
-If `微信读书` is not installed or the API key is not configured, 阅读助手 can still explain text pasted into the conversation, but it cannot fetch the user's reading data.
+If `微信读书` is not installed or the API key is not configured, Reading Assistant can still explain text pasted into the conversation, but it cannot fetch the user's reading data.
 
 ## Installation
 
@@ -92,7 +94,7 @@ Set the WeRead API key in the environment that Codex can read:
 export WEREAD_API_KEY="wrk-..."
 ```
 
-If you want 阅读助手 to write Obsidian notes, also configure a vault path:
+If you want Reading Assistant to write Obsidian notes, also configure a vault path:
 
 ```bash
 export OBSIDIAN_VAULT="/path/to/your/obsidian/vault"
@@ -100,7 +102,7 @@ export OBSIDIAN_VAULT="/path/to/your/obsidian/vault"
 
 Do not commit these values. This repository uses placeholders only.
 
-## Obsidian output
+## Obsidian Output
 
 The recommended vault layout is:
 
@@ -123,10 +125,10 @@ Cards are for a single passage or a single question. They follow [templates/obsi
 - a short highlight quote
 - original wording and source notes, when available
 - explanation and likely misreadings
-- a short "可以这样记" summary
+- a short memory sentence
 - follow-up questions
 
-### Daily notes
+### Daily Notes
 
 Daily notes are for lightweight review. They follow [templates/obsidian-daily.md](templates/obsidian-daily.md) and include:
 
@@ -141,7 +143,7 @@ A useful automation is a nightly review:
 
 ```text
 Every day at 22:00:
-  Use 阅读助手 to check whether today's WeRead activity contains new highlights, notes, or comments.
+  Use Reading Assistant to check whether today's WeRead activity contains new highlights, notes, or comments.
   If yes, write or append an Obsidian daily note.
   Then ask whether the user wants help unpacking the most important question.
   If no, do not send a substantive message unless the automation runtime requires one.
@@ -149,9 +151,9 @@ Every day at 22:00:
 
 Keep the automation selective. A good nightly run should identify one or two high-value questions, not produce a long digest of every highlight.
 
-## Data and privacy boundaries
+## Data and Privacy Boundaries
 
-阅读助手 is designed to save understanding, not copyrighted book content.
+Reading Assistant is designed to save understanding, not copyrighted book content.
 
 It should save:
 
@@ -174,12 +176,13 @@ It should not save:
 
 When the original text cannot be verified, the note should say so directly.
 
-## Repository layout
+## Repository Layout
 
 ```text
 .
 ├── SKILL.md
 ├── README.md
+├── README.zh-CN.md
 ├── evals/
 │   └── evals.json
 └── templates/
@@ -189,26 +192,26 @@ When the original text cannot be verified, the note should say so directly.
 
 The repository intentionally excludes generated notes, personal vault content, runtime state, and local setup files.
 
-## Example sessions
+## Example Sessions
 
-### Translation check
+### Translation Check
 
 ```text
-这句“忏悔本身就是快事一桩”怎么理解？罗素原文怎么说，翻译有没有问题？
+How should I understand this sentence: "repentance was itself a form of passion"?
 ```
 
 Expected behavior:
 
 - identify the book and passage
 - verify the original wording
-- explain the translation issue
+- explain the translation issue, if any
 - use the surrounding argument
 - avoid overclaiming the author's position
 
-### Recent confusion map
+### Recent Confusion Map
 
 ```text
-用阅读助手看看我最近一周的划线，判断我可能在困惑哪些问题。
+Look at my WeRead highlights from the last week. What questions am I probably struggling with?
 ```
 
 Expected behavior:
@@ -218,10 +221,10 @@ Expected behavior:
 - separate evidence-backed conclusions from guesses
 - suggest the next questions to unpack
 
-### Save a card
+### Save a Card
 
 ```text
-用阅读助手解释我今天最值得解的一条划线，并保存到 Obsidian。
+Explain the most important highlight from today and save it to Obsidian.
 ```
 
 Expected behavior:
@@ -249,7 +252,7 @@ Set `OBSIDIAN_VAULT`, or configure a local private path in your own environment.
 
 The skill should still explain the available translation, but the answer and any saved note should mark the original source as unverified.
 
-## Evaluation prompts
+## Evaluation Prompts
 
 [evals/evals.json](evals/evals.json) contains smoke prompts for:
 
