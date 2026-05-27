@@ -1,0 +1,17 @@
+.DS_Store
+.env
+.env.*
+*.log
+
+# Local Codex / OMX runtime state
+.omx/
+app-session-*.js
+
+# Local build/install scratchpads
+.skill-build/
+.obsidian-reading-assistant-init/
+
+# Private vault exports or generated notes
+reading-assistant-notes/
+微信读书/阅读助手/Daily/
+微信读书/阅读助手/Cards/

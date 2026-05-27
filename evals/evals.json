@@ -1,0 +1,35 @@
+{
+  "skill_name": "阅读助手",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "用阅读助手看看我最近一周在微信读书划了什么，并判断我最近可能在困惑哪些问题。",
+      "expected_output": "Uses WeRead data, states the date/window and data limitations, groups recent highlights by theme, separates evidence-backed conclusions from low-confidence guesses, and suggests concrete next reading questions.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "这句“忏悔本身就是快事一桩”怎么理解？罗素原文怎么说，翻译有没有问题？",
+      "expected_output": "Finds or verifies the original wording, explains the translation issue around passion, uses surrounding context, avoids overclaiming that Russell says repentance itself is immoral, and gives a compact interpretation.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "把我在《西方哲学史》最近的划线整理成一份理解卡片，重点解释容易误读的地方。",
+      "expected_output": "Fetches the user's highlights and notes for the book, preserves chapter context and links when available, explains selected passages rather than merely listing notes, and marks original-source gaps honestly.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "用阅读助手解释我今天最值得解的一条划线，并保存到 Obsidian。",
+      "expected_output": "Creates a concise explanation from WeRead evidence, saves an Obsidian Markdown card under the configured vault path, updates daily or unresolved-question notes when appropriate, and reports the saved path.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "每天晚上十点检查今天微信读书有没有新划线，如果有就生成日报保存到 Obsidian，然后提醒我是否需要解惑。",
+      "expected_output": "Uses the daily automation flow, writes or appends a Daily/YYYY-MM-DD.md note in Obsidian with reading/highlight summary and likely questions, avoids long copyrighted excerpts, and asks only when there is new content worth unpacking.",
+      "files": []
+    }
+  ]
+}
