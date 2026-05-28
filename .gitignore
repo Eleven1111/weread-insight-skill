@@ -9,9 +9,9 @@ app-session-*.js
 
 # Local build/install scratchpads
 .skill-build/
-.obsidian-reading-assistant-init/
+.obsidian-weread-insight-init/
 
 # Private vault exports or generated notes
-reading-assistant-notes/
+weread-insight-notes/
 微信读书/阅读助手/Daily/
 微信读书/阅读助手/Cards/

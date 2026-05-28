@@ -1,8 +1,8 @@
-# Reading Assistant
+# WeRead Insight Skill
 
 [简体中文](README.zh-CN.md)
 
-Reading Assistant is a Codex skill for explaining highlights and notes from WeRead.
+WeRead Insight Skill is a Codex skill for explaining highlights and notes from WeRead.
 
 It is not a note-export tool. Its job is to turn a moment of reading friction into a reusable understanding card: what the passage says, why it may be confusing, what the source text and context are, where common misreadings come from, and how to remember the point.
 
@@ -14,7 +14,7 @@ WeRead highlight -> reader question -> source check -> explanation -> Obsidian n
 
 When you highlight a passage, you are usually marking a problem, not just saving a sentence. The problem may be explicit, as in a note you wrote yourself, or implicit, as in several adjacent highlights around the same concept.
 
-Reading Assistant treats each highlight as evidence. It reads the surrounding reading signals, infers the likely question, verifies source text when needed, and writes a concise explanation that can be saved to Obsidian.
+WeRead Insight treats each highlight as evidence. It reads the surrounding reading signals, infers the likely question, verifies source text when needed, and writes a concise explanation that can be saved to Obsidian.
 
 Use it for questions like:
 
@@ -28,7 +28,7 @@ Explain the most important highlight from today and save it as an Obsidian card.
 
 ## What the Skill Does
 
-Reading Assistant runs a five-step workflow.
+WeRead Insight runs a five-step workflow.
 
 1. **Locate the passage**
 
@@ -63,7 +63,7 @@ Reading Assistant runs a five-step workflow.
 
 ### Companion Skill Dependency
 
-Reading Assistant depends on the companion `微信读书` skill. It expects that skill to expose these workflows:
+WeRead Insight depends on the companion `微信读书` skill. It expects that skill to expose these workflows:
 
 | WeRead capability | Used for |
 | --- | --- |
@@ -73,15 +73,15 @@ Reading Assistant depends on the companion `微信读书` skill. It expects that
 | `/book/chapterinfo` | Resolve chapter structure and chapter titles. |
 | `/readdata/detail` | Summarize recent reading activity. |
 
-If `微信读书` is not installed or the API key is not configured, Reading Assistant can still explain text pasted into the conversation, but it cannot fetch the user's reading data.
+If `微信读书` is not installed or the API key is not configured, WeRead Insight can still explain text pasted into the conversation, but it cannot fetch the user's reading data.
 
 ## Installation
 
 Copy the repository into your Codex skills directory:
 
 ```bash
-mkdir -p "$HOME/.codex/skills/reading-assistant"
-rsync -a ./ "$HOME/.codex/skills/reading-assistant/"
+mkdir -p "$HOME/.codex/skills/weread-insight-skill"
+rsync -a ./ "$HOME/.codex/skills/weread-insight-skill/"
 ```
 
 Restart Codex, or open a new session, so the skill list is refreshed.
@@ -94,7 +94,7 @@ Set the WeRead API key in the environment that Codex can read:
 export WEREAD_API_KEY="wrk-..."
 ```
 
-If you want Reading Assistant to write Obsidian notes, also configure a vault path:
+If you want WeRead Insight to write Obsidian notes, also configure a vault path:
 
 ```bash
 export OBSIDIAN_VAULT="/path/to/your/obsidian/vault"
@@ -238,7 +238,7 @@ Expected behavior:
 
 **The skill does not trigger**
 
-Restart Codex or open a new session after copying the skill into `$HOME/.codex/skills/reading-assistant`.
+Restart Codex or open a new session after copying the skill into `$HOME/.codex/skills/weread-insight-skill`.
 
 **It cannot fetch WeRead data**
 

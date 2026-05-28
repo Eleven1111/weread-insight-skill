@@ -1,8 +1,8 @@
-# 阅读助手
+# WeRead Insight Skill（阅读助手）
 
 [English](README.md)
 
-阅读助手是一个 Codex skill，用来解释你在微信读书里的划线和批注。
+WeRead Insight Skill（阅读助手）是一个 Codex skill，用来解释你在微信读书里的划线和批注。
 
 它不是笔记导出工具。它的目标是把一次阅读停顿转化成一张可复用的理解卡片：这句话在说什么，为什么你可能会卡住，原文和上下文是什么，哪些理解容易走偏，最后应该怎样记住它。
 
@@ -14,7 +14,7 @@
 
 当你划下一段话时，你通常不是只在保存一个句子，而是在标记一个问题。这个问题可能很明确，比如你写下了批注；也可能是隐性的，比如你在同一章围绕同一个概念连续划了几处。
 
-阅读助手把每条划线当作证据。它读取相关的阅读信号，推断你可能在追问的问题，在必要时查证原文，并生成一段可以保存到 Obsidian 的简洁解释。
+WeRead Insight 把每条划线当作证据。它读取相关的阅读信号，推断你可能在追问的问题，在必要时查证原文，并生成一段可以保存到 Obsidian 的简洁解释。
 
 适合这类问题：
 
@@ -28,7 +28,7 @@
 
 ## Skill 做什么
 
-阅读助手执行一个五步工作流。
+WeRead Insight 执行一个五步工作流。
 
 1. **定位文本**
 
@@ -63,7 +63,7 @@
 
 ### Companion Skill 依赖
 
-阅读助手依赖 companion `微信读书` skill。它预期该 skill 提供这些能力：
+WeRead Insight 依赖 companion `微信读书` skill。它预期该 skill 提供这些能力：
 
 | 微信读书能力 | 用途 |
 | --- | --- |
@@ -73,15 +73,15 @@
 | `/book/chapterinfo` | 解析章节结构和章节标题。 |
 | `/readdata/detail` | 汇总最近阅读活动。 |
 
-如果没有安装 `微信读书` skill，或者没有配置 API key，阅读助手仍然可以解释用户手动贴到对话里的文本，但不能主动读取用户的微信读书数据。
+如果没有安装 `微信读书` skill，或者没有配置 API key，WeRead Insight 仍然可以解释用户手动贴到对话里的文本，但不能主动读取用户的微信读书数据。
 
 ## 安装
 
 把仓库复制到 Codex skills 目录：
 
 ```bash
-mkdir -p "$HOME/.codex/skills/reading-assistant"
-rsync -a ./ "$HOME/.codex/skills/reading-assistant/"
+mkdir -p "$HOME/.codex/skills/weread-insight-skill"
+rsync -a ./ "$HOME/.codex/skills/weread-insight-skill/"
 ```
 
 然后重启 Codex，或打开一个新会话，让 skill 列表刷新。
@@ -94,7 +94,7 @@ rsync -a ./ "$HOME/.codex/skills/reading-assistant/"
 export WEREAD_API_KEY="wrk-..."
 ```
 
-如果希望阅读助手写入 Obsidian，再配置 vault 路径：
+如果希望 WeRead Insight 写入 Obsidian，再配置 vault 路径：
 
 ```bash
 export OBSIDIAN_VAULT="/path/to/your/obsidian/vault"
@@ -238,7 +238,7 @@ Daily notes 用于轻量回顾。结构见 [templates/obsidian-daily.md](templat
 
 **Skill 没有触发**
 
-把 skill 复制到 `$HOME/.codex/skills/reading-assistant` 后，重启 Codex 或打开新会话。
+把 skill 复制到 `$HOME/.codex/skills/weread-insight-skill` 后，重启 Codex 或打开新会话。
 
 **无法读取微信读书数据**
 
