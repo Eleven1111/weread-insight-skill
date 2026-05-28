@@ -127,6 +127,7 @@ Cards 用于保存单条文本或单个问题。结构见 [templates/obsidian-ca
 - 解释和常见误读
 - 一句记忆句
 - 后续问题
+- 指向当天 Daily note 的反链
 
 ### Daily Notes
 
@@ -136,6 +137,8 @@ Daily notes 用于轻量回顾。结构见 [templates/obsidian-daily.md](templat
 - 新划线或新批注
 - 值得展开的问题
 - 当天生成的卡片链接
+
+Daily notes 和 Cards 必须双向链接：Daily 记录当天阅读并链接到当天生成的卡片；每张 Card 也要反链回当天 Daily。这样后续整理、回顾和清理未解问题时，Obsidian 里不会断链。
 
 ## 自动化
 

@@ -50,4 +50,11 @@ status: evergreen
 ## 链接
 
 - WeRead：{{weread_url}}
+- Daily：[[{{date}}]]
 - Related: [[未解问题]]
+
+<!--
+Required:
+- After creating this card, make sure the matching Daily note links back to it
+  under `## 已生成卡片`.
+-->

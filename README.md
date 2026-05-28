@@ -127,6 +127,7 @@ Cards are for a single passage or a single question. They follow [templates/obsi
 - explanation and likely misreadings
 - a short memory sentence
 - follow-up questions
+- a backlink to the matching daily note
 
 ### Daily Notes
 
@@ -136,6 +137,8 @@ Daily notes are for lightweight review. They follow [templates/obsidian-daily.md
 - new highlights or comments
 - likely questions worth unpacking
 - links to cards generated that day
+
+Daily notes and cards are intentionally bidirectional: a daily note links to each card created from that day's reading, and every card links back to the daily note. This keeps review, triage, and later cleanup navigable inside Obsidian.
 
 ## Automation
 

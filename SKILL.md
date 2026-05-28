@@ -179,6 +179,14 @@ version: 0.2.0
 
 单条解释卡片使用 `templates/obsidian-card.md` 的结构。每日摘要使用 `templates/obsidian-daily.md` 的结构。如果当天文件已存在，在对应日期文件里追加新小节，不要重写整篇。
 
+Obsidian 反链是必需项：
+
+- 每个 Daily 文件必须在 `## 已生成卡片` 下列出当天生成或相关的解释卡片 wikilink。
+- 每张解释卡片必须在 `## 链接` 下写入 `Daily：[[YYYY-MM-DD]]`，指回当天 Daily。
+- 如果先生成 Daily、后生成 Card，创建 Card 后必须回写当天 Daily 的 `## 已生成卡片` 小节。
+- 如果先生成 Card、后生成 Daily，创建 Daily 时必须收集当天 Card 并写入 `## 已生成卡片` 小节。
+- 不要只在对话中报告保存路径；Obsidian 文件之间必须能通过 wikilink 双向导航。
+
 未解问题写入 `未解问题.md`。使用任务列表，保留来源链接：
 
 ```markdown

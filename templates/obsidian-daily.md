@@ -28,3 +28,11 @@ tags:
 ## 已生成卡片
 
 {{cards}}
+
+<!--
+Required:
+- List each generated or related card as a wikilink, for example:
+  - [[{{date}}-{{book}}-{{topic}}]]
+- When a card is created after this daily note, append its wikilink here.
+- Every listed card must link back to this daily note with `Daily：[[{{date}}]]`.
+-->
